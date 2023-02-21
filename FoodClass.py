@@ -5,7 +5,7 @@ class Customer:
         self.__address = address
         self.__email = email
         self.__phone = phone
-        self.__mem_status = member_status
+        self.__member_status = member_status
 
     def get_custid(self):
         return self.__custid

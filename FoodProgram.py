@@ -13,19 +13,19 @@ dict = {'trans1':['2/15/2023','The Lone Patty',17,569],
 order_total = 0
 discount = 0
 
-cust_id = 570
-cust_name = 'Danni Sellyar'
-cust_address = '97 Mitchell Way Hewitt Texas 76712'
-cust_email = 'dsellyarft@gmpg.org'
-cust_phone = '254-555-9362'
-cust_member = False
+#cust_id = 570
+#cust_name = 'Danni Sellyar'
+#cust_address = '97 Mitchell Way Hewitt Texas 76712'
+#cust_email = 'dsellyarft@gmpg.org'
+#cust_phone = '254-555-9362'
+#cust_member = False
 
-#cust_id = 569
-#cust_name = 'Aubree Himsworth'
-#cust_address = '1172 Moulton Hill Waco Texas 76710'
-#cust_email = 'ahimsworthfs@list-manage.com'
-#cust_phone = '254-555-2273'
-#cust_member = True
+cust_id = 569
+cust_name = 'Aubree Himsworth'
+cust_address = '1172 Moulton Hill Waco Texas 76710'
+cust_email = 'ahimsworthfs@list-manage.com'
+cust_phone = '254-555-2273'
+cust_member = True
 
 customer = fc.Customer(cust_id, cust_name, cust_address, cust_email, cust_phone, cust_member)
 
@@ -33,7 +33,12 @@ print(f'Customer Name: {customer.get_name()}')
 print(f'Phone: {customer.get_phone()}')
 
 for row in dict:
-    transaction = fc.Transaction(dict[row][0], dict[row][1], dict[row][2], dict[row][3])
+    date = dict[row][0]
+    name = dict[row][1]
+    cost = dict[row][2]
+    cust_id = dict[row][3]
+
+    transaction = fc.Transaction(date, name, cost, cust_id)
 
     if customer.get_custid() == transaction.get_customerid():
         print(f'Order Item: {transaction.get_foodname()} Price: ${transaction.get_cost():.2f}')
